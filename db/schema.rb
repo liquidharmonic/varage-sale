@@ -17,19 +17,19 @@ ActiveRecord::Schema.define(version: 20160818015406) do
   enable_extension "plpgsql"
 
   create_table "categories", force: :cascade do |t|
-    t.string   "name"
+    t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "items", force: :cascade do |t|
-    t.integer  "category_id"
-    t.integer  "seller_id"
-    t.string   "title"
-    t.text     "description"
-    t.integer  "price_in_cents"
-    t.string   "status"
-    t.date     "published_date"
+    t.integer  "category_id",    null: false
+    t.integer  "seller_id",      null: false
+    t.string   "title",          null: false
+    t.text     "description",    null: false
+    t.integer  "price_in_cents", null: false
+    t.string   "status",         null: false
+    t.date     "published_date", null: false
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
@@ -38,9 +38,9 @@ ActiveRecord::Schema.define(version: 20160818015406) do
   add_index "items", ["seller_id"], name: "index_items_on_seller_id", using: :btree
 
   create_table "sellers", force: :cascade do |t|
-    t.string   "name"
-    t.float    "latitude"
-    t.float    "longitude"
+    t.string   "name",       null: false
+    t.float    "latitude",   null: false
+    t.float    "longitude",  null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
