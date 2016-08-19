@@ -7,4 +7,16 @@ FactoryGirl.define do
     price_in_cents {10000}
     status {"available"}
   end
+
+  trait :banned do
+    status {"banned"}
+  end
+
+  trait :sold do
+    status {"sold"}
+  end
+
+  trait :available do
+    status {"available"}
+  end
 end

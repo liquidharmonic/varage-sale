@@ -1,5 +1,5 @@
 class SellersController < ApplicationController
-  before_action :set_seller, only: [:items]
+  before_action :set_seller, only: [:items_sold]
 
   # GET /sellers.json&page=1
   def index

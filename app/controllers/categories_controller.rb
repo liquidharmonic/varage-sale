@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_action :set_category, only: [:items]
+  before_action :set_category, only: [:items_available]
 
   # GET /categories.json
   def index

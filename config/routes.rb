@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   get 'categories' => 'categories#index' # done
   get 'categories/:id/items_available' => 'categories#items_available' #done
 
-  get 'items' => 'items#index'
-  get 'items/:id' => 'items#show'
+  get 'items' => 'items#index' #done
+  get 'items/:id' => 'items#show' #done
   # resources :categories
   # resources :sellers
   # resources :items
