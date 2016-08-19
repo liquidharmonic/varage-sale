@@ -1,9 +1,9 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
+VarageSale Challenge
+Eric Ko
+Start: Wed Aug 17
+Finish: Thurs Aug 18
 
 * Ruby version
 2.3.1
@@ -12,42 +12,54 @@ Things you may want to cover:
 postgresql-9.5
 rails 4.2.6
 
+You can find install instructions here https://gorails.com/setup/ubuntu/14.10
+
 * Configuration
-zeus # bundle install zeus
+bundle install
+bundle install zeus
 zeus start
 
-* Database creation
+* Database creation & initialization
 zeus rake db:create
+zeus rake db:migrate
 zeus rake db:test:load
 zeus rake db:seed
 
-* Database initialization
-rake db:migrate
+In one line
+zeus rake db:create & zeus rake db:migrate & zeus rake db:test:load & zeus rake db:seed
 
 * How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
+zeus test spec/
 
 * Deployment instructions
+TO DO, add unicorn or thin web server and use capistrano to deploy
 
-* ...
+* How to use the API
+Assuming you have zeus master running(zeus start), open another tab in the same dir and run to start the server
+zeus server
+
+Endpoints
+
+  1.  GET localhost:3000/sellers&page=0.json
+        Returns paginated JSON sellers.
+        Use the ids for the sellers for API#2
+  
+  2.  GET localhost:3000/sellers/:id/items_sold&page=0.json
+        Returns a sellers sold JSON paginated items 
+  
+  3.  GET localhost:3000/categories&page=0.json
+        Returns paginated JSON categories.
+        Use the ids for the categories for API#4
+
+  4.  GET localhost:3000/categories/:id/items_available&page=0.json
+        Returns paginated available items for a category
+
+  5.  GET localhost:3000/items&page=0.json
+        Returns paginated JSON items.
+        Use the ids for the sellers for API#6
+
+  6.  GET localhost:3000/items/:id .json
+        Returns JSON details of an item
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
 
-Models
-  Category
-    name: car, clothing, others
-  Seller
-    name:
-    latitude:
-    longitude:
-  Item
-    category_id:
-    seller_id:
-    title:
-    description:
-    price:
-    status: Available, Pending, Sold, Expired, Banned
-    published_date:

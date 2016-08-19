@@ -14,7 +14,10 @@ class Item < ActiveRecord::Base
 
   validates :category, presence: true, allow_nil: false
   validates :seller, presence: true, allow_nil: false
+  # You may want to add unique validation on title and seller to prevent
+  # a seller having multiple listings with the same name to avoid confusion
   validates :title, presence: true, allow_nil: false
+  validates :description, presence: true, allow_nil: false
   validates :price_in_cents, presence: true, allow_nil: false
   validate :valid_status
 

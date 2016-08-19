@@ -1,5 +1,5 @@
 class ItemSerializer < ActiveModel::Serializer
-  attributes  :title, :description, :category_name,
+  attributes  :id, :title, :description, :category_name,
               :price, :status, :published_date,
               :seller_name, :seller_latitude, :seller_longitude
 
