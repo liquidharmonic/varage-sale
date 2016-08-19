@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # keep the routes simple 
-  get 'sellers' => 'sellers#index'
-  get 'sellers/:id/items' => 'sellers#items'
+  get 'sellers' => 'sellers#index' # done
+  get 'sellers/:id/items' => 'sellers#items' # done
 
   get 'categories' => 'categories#index'
   get 'categories/:id/items' => 'categories#items'

@@ -8,11 +8,6 @@ describe SellersController, :type => :controller do
       expect(response).to have_http_status(200)
     end
 
-    it "renders the index template" do
-      get :index, {page: 1, format: :json}
-      expect(response).to render_template("index")
-    end
-
     it "loads all of the seller into @sellers" do
       seller1, seller2 =  FactoryGirl.create(:seller), FactoryGirl.create(:seller)
       get :index, {page: 1, format: :json}

@@ -4,6 +4,9 @@ class SellersController < ApplicationController
   # GET /sellers.json&page=1
   def index
     @sellers = Seller.paginate(:page => params[:page])
+    respond_to do |format|
+      format.json { render json: @sellers, status: 200}
+    end
   end
 
   # GET /sellers/:id/items.json&page=1
