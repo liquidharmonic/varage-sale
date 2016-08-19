@@ -8,7 +8,6 @@
 Category.create!([
   {name: 'car'},
   {name: 'clothing'},
-  {name: 'electronics'},
   {name: 'other'},
 ])
 
