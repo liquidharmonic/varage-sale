@@ -12,7 +12,7 @@ class ItemSerializer < ActiveModel::Serializer
   end
 
   def seller_name
-    object.status != 'banned' ? object.seller.name : nil
+    object.banned? ? nil : object.seller.name
   end
 
   def seller_latitude
@@ -24,7 +24,7 @@ class ItemSerializer < ActiveModel::Serializer
   end
 
   def published_date
-    object.status != 'banned' ? object.published_date : nil
+    object.banned? ? nil : object.published_date
   end
 
 end

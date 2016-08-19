@@ -11,7 +11,7 @@ class Item < ActiveRecord::Base
   AVAILABLE_STATE = ["available", "pending"]
   UNAVAILABLE_STATE = ["sold", "expired", "banned"]
   STATES = AVAILABLE_STATE + UNAVAILABLE_STATE
-  
+
   validates :category, presence: true, allow_nil: false
   validates :seller, presence: true, allow_nil: false
   validates :title, presence: true, allow_nil: false
@@ -28,6 +28,10 @@ class Item < ActiveRecord::Base
     unless STATES.include?(self.status)
       @errors[:status] << "Status must be #{STATES}"
     end
+  end
+
+  def banned?
+    status == 'banned'
   end
 
   # results per page for paginate gem
