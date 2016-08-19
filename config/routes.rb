@@ -1,4 +1,17 @@
 Rails.application.routes.draw do
+  # keep the routes simple 
+  get 'sellers' => 'sellers#index'
+  get 'sellers/:id/items' => 'sellers#items'
+
+  get 'categories' => 'categories#index'
+  get 'categories/:id/items' => 'categories#items'
+
+  get 'items' => 'items#index'
+  get 'items/:id' => 'items#show'
+  # resources :categories
+  # resources :sellers
+  # resources :items
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
