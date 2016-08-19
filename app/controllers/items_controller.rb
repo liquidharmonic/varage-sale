@@ -1,68 +1,20 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_item, only: [:show]
 
   # GET /items
   # GET /items.json
   def index
-    @items = Item.all
+    @items = Item.paginate(:page => params[:page])
+    respond_to do |format|
+      format.json { render json: @items, status: 200}
+    end
   end
 
   # GET /items/1
   # GET /items/1.json
   def show
-  end
-
-  # GET /items/new
-  # NOT NEEDED
-  def new
-    @item = Item.new
-  end
-
-  # GET /items/1/edit
-  # NOT NEEDED
-  def edit
-  end
-
-  # POST /items
-  # POST /items.json
-  # NOT NEEDED
-  def create
-    @item = Item.new(item_params)
-
     respond_to do |format|
-      if @item.save
-        format.html { redirect_to @item, notice: 'Item was successfully created.' }
-        format.json { render :show, status: :created, location: @item }
-      else
-        format.html { render :new }
-        format.json { render json: @item.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /items/1
-  # PATCH/PUT /items/1.json
-  # NOT NEEDED
-  def update
-    respond_to do |format|
-      if @item.update(item_params)
-        format.html { redirect_to @item, notice: 'Item was successfully updated.' }
-        format.json { render :show, status: :ok, location: @item }
-      else
-        format.html { render :edit }
-        format.json { render json: @item.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /items/1
-  # DELETE /items/1.json
-  # NOT NEEDED
-  def destroy
-    @item.destroy
-    respond_to do |format|
-      format.html { redirect_to items_url, notice: 'Item was successfully destroyed.' }
-      format.json { head :no_content }
+      format.json { render json: @item, status: 200}
     end
   end
 

@@ -3,11 +3,15 @@ class Item < ActiveRecord::Base
   belongs_to :category
   belongs_to :seller
 
+  scope :available, -> { where(status: AVAILABLE_STATE) }
+  scope :sold, -> { where(status: 'sold') }
   # attr_accessor :category_id, :category, :seller_id, :seller, :title, :description, 
   #               :price_in_cents, :status, :published_date
 
-  STATES = ["available", "pending", "sold", "expired", "banned"]
-
+  AVAILABLE_STATE = ["available", "pending"]
+  UNAVAILABLE_STATE = ["sold", "expired", "banned"]
+  STATES = AVAILABLE_STATE + UNAVAILABLE_STATE
+  
   validates :category, presence: true, allow_nil: false
   validates :seller, presence: true, allow_nil: false
   validates :title, presence: true, allow_nil: false

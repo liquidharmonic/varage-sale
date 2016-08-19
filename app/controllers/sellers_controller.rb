@@ -9,9 +9,9 @@ class SellersController < ApplicationController
     end
   end
 
-  # GET /sellers/:id/items.json&page=1
-  def items
-    @items = @seller.items.paginate(:page => params[:page])
+  # GET /sellers/:id/items_sold.json&page=1
+  def items_sold
+    @items = @seller.items.sold.paginate(:page => params[:page])
     respond_to do |format|
       format.json { render json: @items, status: 200}
     end

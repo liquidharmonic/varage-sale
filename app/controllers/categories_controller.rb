@@ -9,9 +9,9 @@ class CategoriesController < ApplicationController
     end
   end
 
-  # GET /categories/:id/items.json&page=1
-  def items
-    @items = @category.items.paginate(:page => params[:page])
+  # GET /categories/:id/items_available.json&page=1
+  def items_available
+    @items = @category.items.available.paginate(:page => params[:page])
     respond_to do |format|
       format.json { render json: @items, status: 200}
     end

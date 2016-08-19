@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   # keep the routes simple 
   get 'sellers' => 'sellers#index' # done
-  get 'sellers/:id/items' => 'sellers#items' # done
+  get 'sellers/:id/items_sold' => 'sellers#items_sold' # done
 
-  get 'categories' => 'categories#index'
-  get 'categories/:id/items' => 'categories#items'
+  get 'categories' => 'categories#index' # done
+  get 'categories/:id/items_available' => 'categories#items_available' #done
 
   get 'items' => 'items#index'
   get 'items/:id' => 'items#show'
