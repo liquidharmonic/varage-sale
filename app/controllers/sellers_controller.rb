@@ -1,63 +1,16 @@
 class SellersController < ApplicationController
-  before_action :set_seller, only: [:show, :edit, :update, :destroy]
+  before_action :set_seller, only: [:items]
 
-  # GET /sellers
-  # GET /sellers.json
+  # GET /sellers.json&page=1
   def index
-    @sellers = Seller.all
+    @sellers = Seller.paginate(:page => params[:page])
   end
 
-  # GET /sellers/1
-  # GET /sellers/1.json
-  def show
-  end
-
-  # GET /sellers/new
-  def new
-    @seller = Seller.new
-  end
-
-  # GET /sellers/1/edit
-  def edit
-  end
-
-  # POST /sellers
-  # POST /sellers.json
-  def create
-    @seller = Seller.new(seller_params)
-
+  # GET /sellers/:id/items.json&page=1
+  def items
+    @items = @seller.items.paginate(:page => params[:page])
     respond_to do |format|
-      if @seller.save
-        format.html { redirect_to @seller, notice: 'Seller was successfully created.' }
-        format.json { render :show, status: :created, location: @seller }
-      else
-        format.html { render :new }
-        format.json { render json: @seller.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /sellers/1
-  # PATCH/PUT /sellers/1.json
-  def update
-    respond_to do |format|
-      if @seller.update(seller_params)
-        format.html { redirect_to @seller, notice: 'Seller was successfully updated.' }
-        format.json { render :show, status: :ok, location: @seller }
-      else
-        format.html { render :edit }
-        format.json { render json: @seller.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /sellers/1
-  # DELETE /sellers/1.json
-  def destroy
-    @seller.destroy
-    respond_to do |format|
-      format.html { redirect_to sellers_url, notice: 'Seller was successfully destroyed.' }
-      format.json { head :no_content }
+      format.json { render json: @items, status: 200}
     end
   end
 

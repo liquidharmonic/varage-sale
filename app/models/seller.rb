@@ -4,4 +4,6 @@ class Seller < ActiveRecord::Base
 
   #attr_accessor :name, :latitude, :longitude
 
+  # results per page for paginate gem
+  self.per_page = 20
 end

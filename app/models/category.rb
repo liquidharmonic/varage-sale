@@ -4,4 +4,6 @@ class Category < ActiveRecord::Base
 
   #attr_accessor :name
 
+  # results per page for paginate gem
+  self.per_page = 20
 end

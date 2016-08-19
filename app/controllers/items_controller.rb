@@ -13,6 +13,7 @@ class ItemsController < ApplicationController
   end
 
   # GET /items/new
+  # NOT NEEDED
   def new
     @item = Item.new
   end

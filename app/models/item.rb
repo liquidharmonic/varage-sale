@@ -25,4 +25,7 @@ class Item < ActiveRecord::Base
       @errors[:status] << "Status must be #{STATES}"
     end
   end
+
+  # results per page for paginate gem
+  self.per_page = 20
 end
