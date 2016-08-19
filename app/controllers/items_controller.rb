@@ -23,9 +23,4 @@ class ItemsController < ApplicationController
     def set_item
       @item = Item.find(params[:id])
     end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def item_params
-      params.require(:item).permit(:category_id, :seller_id, :description, :price_in_cents, :status, :published_date)
-    end
 end
