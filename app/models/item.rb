@@ -15,7 +15,6 @@ class Item < ActiveRecord::Base
   validate :valid_status
 
   before_create :set_defaults
-  # The set_defaults will only work if the object is new
 
   def set_defaults
     self.published_date = Time.now.utc
